@@ -12,7 +12,7 @@ install_packages() {
 	if [ $(uname) == "Darwin" ]; then
 	    command brew install zsh neovim tmux
     	elif [ -e /etc/lsb-release ]; then
-	    apt-get install zsh neovim tmux
+	    apt-get install -y zsh neovim tmux
 	fi
 }
 
