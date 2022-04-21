@@ -13,8 +13,8 @@ link_to_homedir() {
         command mkdir "$HOME/.dotbackup"
     fi
 
-    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0])")" && pwd -P)"
-    local dotdir=$(dirname ${dirname ${script_dir})
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+    local dotdir=$(dirname ${script_dir})
     if [[ "$HOME" != "$dotdir" ]];then
         for f in $dotdir/.??*;do
             [[ `basename $f` == ".git" ]] && continue
