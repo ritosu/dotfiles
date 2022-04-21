@@ -11,7 +11,7 @@ jobs:
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
       - name: check ls
-        run: ls -lha
+        run: ls -lha .bin
       - name: Install dotfiles
         run: .bin/install.sh install
 
@@ -43,7 +43,7 @@ jobs:
       - name: Update packages
         run: pacman -Syu --noconfirm
       - name: Instal required packages
-        run: packman -S --noconfirm git sudo
+        run: pacman -S --noconfirm git sudo
       - name: Install dotfiles
         run: .bin/install.sh install
 
