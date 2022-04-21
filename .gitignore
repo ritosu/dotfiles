@@ -1,0 +1,13 @@
+### all ignore ###
+/*
+/.**
+
+### not ignore ###
+!/.zshrc
+!/.gitignore_global
+!/.gitignore_shared
+
+!/README.md
+!/LICENSE
+!.gitignore
+!.gitkeep
