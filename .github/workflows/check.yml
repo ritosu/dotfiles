@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install required packages
-        run: yum install -y git sudo
+        run: dnf install -y git sudo
       - name: Install dotfiles
         run: .bin/install.sh install
 
