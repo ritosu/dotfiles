@@ -6,6 +6,16 @@ helpmsg() {
     command echo ""
 }
 
+install_packages() {
+	command echo "install packages..."
+
+	if [ $(uname) == "Darwin" ]; then
+	    command brew install zsh neovim tmux
+    	elif [ -e /etc/lsb-release ]; then
+	    apt-get install zsh neovim tmux
+	fi
+}
+
 link_to_homedir() {
     command echo "backup old dotfiles..."
     if [ ! -d "$HOME/.dotbackup" ];then
@@ -46,6 +56,7 @@ while [$# -gt 0];do
     shift
 done
 
+install_packages
 link_to_homedir
 git config --global include.path "~/.gitconfig_shared"
 command echo -e "\e[1;36m Install completed!!! \e[m"
