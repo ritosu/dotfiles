@@ -14,7 +14,7 @@ install_packages() {
     	elif [ -e /etc/lsb-release ]; then
 	    command apt-get install -y zsh neovim tmux curl
 	fi
-
+	mkdir .local
 	curl -o .local/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 }
 
