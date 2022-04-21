@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
+      - name: check ls
+        run: ls -lha
       - name: Install dotfiles
         run: .bin/install.sh install
 
@@ -35,7 +37,7 @@ jobs:
 
   arch:
     runs-on: ubuntu-latest
-    container: archlinux/base:latest
+    container: archlinux:latest
     steps:
       - uses: actions/checkout@v1
       - name: Update packages
