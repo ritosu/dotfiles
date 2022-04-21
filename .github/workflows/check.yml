@@ -47,7 +47,7 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    conntainer: ubuntu:latest
+    container: ubuntu:latest
     steps:
       - uses: actions/checkout@v1
       - name: Update packages
