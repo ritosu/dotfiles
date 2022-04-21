@@ -3,9 +3,13 @@
 /.**
 
 ### not ignore ###
-!/.zshrc
+!/.bin/
+!/.bin/**
+!/.github/
+!/.github/**
 !/.gitignore_global
 !/.gitignore_shared
+!/.zshrc
 
 !/README.md
 !/LICENSE
