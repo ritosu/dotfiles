@@ -10,10 +10,12 @@ install_packages() {
 	command echo "install packages..."
 
 	if [ $(uname) == "Darwin" ]; then
-	    command brew install zsh neovim tmux
+	    command brew install zsh neovim tmux curl
     	elif [ -e /etc/lsb-release ]; then
-	    apt-get install -y zsh neovim tmux
+	    command apt-get install -y zsh neovim tmux curl
 	fi
+
+	curl -o .local/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 }
 
 link_to_homedir() {

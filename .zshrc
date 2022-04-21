@@ -1,4 +1,4 @@
-source .bin/git-prompt.sh
+source .local/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWNTRACKEDFILES=true
