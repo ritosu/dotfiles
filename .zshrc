@@ -6,7 +6,7 @@ GIT_PS1_SHOWUPSTREEAM=auto
 
 setopt PROMPT_SUBST ; PS1='%F{red}$(__git_ps1 "(%s)")%f'
 
-PROMPT="%K{019}$(echo -e '\U1F451') %F{green}%2~%f $(echo $PS1) $(echo -e '\U1F449')%k "
+PROMPT="%K{026}$(echo -e '\U1F451') %F{green}%2~%f $(echo $PS1) $(echo -e '\U1F449')%k "
 #PROMPT="%n@%m %1~ %#"
 
 alias v="nvim"

@@ -1,16 +1,14 @@
 ### all ignore ###
-/*
+/**
 
 ### not ignore ###
 !/.bin/
-!/.bin/**
+!/.config/
+!/.config/nvim/
+!/.config/nvim/init.vim
 !/.github/
-!/.github/**
-!/.gitignore_global
-!/.gitignore_shared
+!/.tmux.conf
 !/.zshrc
 
 !/README.md
-!/LICENSE
 !.gitignore
-!.gitkeep
