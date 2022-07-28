@@ -8,10 +8,11 @@ helpmsg() {
 
 install_packages() {
 	command echo "install packages..."
+    os=$(whichOS)
 
-	if [ $(uname) == "Darwin" ]; then
+	if [ $os == "Darwin" ]; then
 	    command brew install zsh neovim tmux curl
-    	elif [ -e /etc/lsb-release ]; then
+    elif [ $os == "ubuntu" ]; then
 	    command apt-get install -y zsh neovim tmux curl
 	else
 	    return 0;
@@ -45,20 +46,20 @@ link_to_homedir() {
     fi
 }
 
-while [$# -gt 0];do
-    case ${1} in
-        --debug|-d)
-            set -uex
-            ;;
-        --help|-h)
-            helpmsg
-            exit 1
-            ;;
-        *)
-            ;;
-    esac
-    shift
-done
+whichOS() {
+    os=$(uname)
+    if [ $os == "Darwin" ]; then
+        echo darwin
+        return
+    elif [ $os == "Linux" ]; then
+        if [ -f /etc/lsb-release ]; then
+            echo ubuntu
+            return
+        fi
+    else
+        command echo "this os is not supported."
+    fi
+}
 
 install_packages
 link_to_homedir
