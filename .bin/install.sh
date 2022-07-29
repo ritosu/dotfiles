@@ -7,18 +7,18 @@ helpmsg() {
 }
 
 install_packages() {
-	command echo "install packages..."
+    command echo "install packages..."
     os=$(whichOS)
 
-	if [ $os == "Darwin" ]; then
-	    command brew install zsh neovim tmux curl
+    if [ $os == "Darwin" ]; then
+	command brew install zsh neovim tmux curl
     elif [ $os == "ubuntu" ]; then
-	    command apt-get install -y zsh neovim tmux curl
-	else
-	    return 0;
-	fi
-	mkdir .local
-	curl -o .local/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+	command apt-get install -y zsh neovim tmux curl
+    else
+	return 0;
+    fi
+    mkdir .local
+    curl -o .local/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 }
 
 link_to_homedir() {
@@ -61,7 +61,7 @@ whichOS() {
     fi
 }
 
-install_packages
 link_to_homedir
+install_packages
 git config --global include.path "~/.gitconfig_shared"
 command echo -e "\e[1;36m Install completed!!! \e[m"
