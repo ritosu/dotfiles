@@ -18,3 +18,5 @@ let g:rustfmt_autosave=1
 set shell=/bin/zsh
 set shiftwidth=4
 set confirm
+
+inoremap jj <ESC>
