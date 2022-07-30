@@ -8,22 +8,17 @@ install_packages() {
 	if [ $os == "Darwin" ]; then
 	    brew install zsh neovim tmux curl
     elif [ $os == "ubuntu" ]; then
-        sudo apt update && sudo apt -y upgrade && sudo apt install -y zsh neovim tmux curl
-	else
-	    return 0;
+        apt update \ 
+        && apt -y upgrade \
+        && apt install -y neovim tmux curl \
+        && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install fish
 	fi
-	mkdir .local
-	curl -o .local/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 }
 
 link_to_homedir() {
-    if [ ! -d "$HOME/.dotbackup" ];then
-        mkdir "$HOME/.dotbackup"
-    fi
-
-    script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+    script_dir=$(cd $(dirname $0) && pwd -P)
     dotdir=$(dirname ${script_dir})
-    if [[ "$HOME" != "$dotdir" ]];then
+    if [[ $HOME != $dotdir ]];then
         for f in $dotdir/.??*;do
             [[ `basename $f` == ".git" ]] && continue
             if [[ -L "$HOME/`basename $f`" ]];then
@@ -32,7 +27,7 @@ link_to_homedir() {
             if [[ -e "$HOME/`basename $f`" ]];then
                 mv "$HOME/`basename $f`" "$HOME/.dotbackup"
             fi
-            ln -snf $f HOME
+            ln -snf $f $HOME
         done
     fi
 }
@@ -50,7 +45,8 @@ whichOS() {
     fi
 }
 
-install_packages
+
+echo "インストールを開始します"
 link_to_homedir
-git config --global include.path "~/.gitconfig_shared"
-command echo -e "\e[1;36m Install completed!!! \e[m"
+install_packages
+echo "インストールが終了しました。"
