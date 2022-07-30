@@ -45,7 +45,6 @@ whichOS() {
     fi
 }
 
-
 echo "インストールを開始します"
 link_to_homedir
 install_packages
