@@ -1,66 +1,51 @@
 #!/usr/bin/env bash
 set -ue
 
-helpmsg() {
-    command echo "Usage: $0 [--help | h ]" 0>&2
-    command echo ""
-}
-
 install_packages() {
-	command echo "install packages..."
+	echo "install packages..."
+    os=$(whichOS)
 
-	if [ $(uname) == "Darwin" ]; then
-	    command brew install zsh neovim tmux curl
-    	elif [ -e /etc/lsb-release ]; then
-	    command apt-get install -y zsh neovim tmux curl
-	else
-	    return 0;
+	if [ $os == "Darwin" ]; then
+	    brew install zsh neovim tmux curl
+    elif [ $os == "ubuntu" ]; then
+        apt update \
+        && apt -y upgrade \
+        && apt install -y curl neovim software-properties-common tmux\
+        && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install -y fish
 	fi
-	mkdir .local
-	curl -o .local/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 }
 
 link_to_homedir() {
-    command echo "backup old dotfiles..."
-    if [ ! -d "$HOME/.dotbackup" ];then
-        command echo "$HOME/.dotbackup not found. Auto Make it"
-        command mkdir "$HOME/.dotbackup"
-    fi
-
-    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-    local dotdir=$(dirname ${script_dir})
-    if [[ "$HOME" != "$dotdir" ]];then
+    script_dir=$(cd $(dirname $0) && pwd -P)
+    dotdir=$(dirname ${script_dir})
+    if [[ $HOME != $dotdir ]];then
         for f in $dotdir/.??*;do
             [[ `basename $f` == ".git" ]] && continue
             if [[ -L "$HOME/`basename $f`" ]];then
-                command rm -f "$HOME/`basename $f`"
+                rm -f "$HOME/`basename $f`"
             fi
             if [[ -e "$HOME/`basename $f`" ]];then
-                command mv "$HOME/`basename $f`" "$HOME/.dotbackup"
+                mv "$HOME/`basename $f`" "$HOME/.dotbackup"
             fi
-            command ln -snf $f HOME
+            ln -snf $f $HOME
         done
-    else
-        command echo "same install src dest"
     fi
 }
 
-while [$# -gt 0];do
-    case ${1} in
-        --debug|-d)
-            set -uex
-            ;;
-        --help|-h)
-            helpmsg
-            exit 1
-            ;;
-        *)
-            ;;
-    esac
-    shift
-done
+whichOS() {
+    os=$(uname)
+    if [ $os == "Darwin" ]; then
+        echo darwin
+        return
+    elif [ $os == "Linux" ]; then
+        if [ -f /etc/lsb-release ]; then
+            echo ubuntu
+            return
+        fi
+    fi
+}
 
-install_packages
+echo "インストールを開始します"
 link_to_homedir
-git config --global include.path "~/.gitconfig_shared"
-command echo -e "\e[1;36m Install completed!!! \e[m"
+install_packages
+echo "インストールが終了しました。"
