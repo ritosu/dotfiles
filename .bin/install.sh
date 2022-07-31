@@ -11,7 +11,7 @@ install_packages() {
         apt update \
         && apt -y upgrade \
         && apt install -y curl neovim software-properties-common tmux\
-        && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install fish
+        && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install -y fish
 	fi
 }
 
