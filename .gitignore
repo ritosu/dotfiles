@@ -4,8 +4,6 @@
 ### not ignore ###
 !/.bin/
 !/.config/
-!/.config/nvim/
-!/.config/nvim/init.vim
 !/.github/
 !/.tmux.conf
 !/.zshrc
