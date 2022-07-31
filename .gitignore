@@ -1,12 +1,13 @@
 ### all ignore ###
-/**
+*
+!*/
 
 ### not ignore ###
-!/.bin/
-!/.config/
-!/.github/
-!/.tmux.conf
-!/.zshrc
+!.config/fish/**
+!.config/nvim/**
+!.github/**
+!.tmux.conf
+!.zshrc
 
-!/README.md
+!README.md
 !.gitignore
