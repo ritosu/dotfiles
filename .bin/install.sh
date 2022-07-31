@@ -8,7 +8,7 @@ install_packages() {
 	if [ $os == "Darwin" ]; then
 	    brew install zsh neovim tmux curl
     elif [ $os == "ubuntu" ]; then
-        apt update \ 
+        apt update \
         && apt -y upgrade \
         && apt install -y neovim tmux curl \
         && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install fish
