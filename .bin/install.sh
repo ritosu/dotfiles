@@ -10,7 +10,7 @@ install_packages() {
     elif [ $os == "ubuntu" ]; then
         apt update \
         && apt -y upgrade \
-        && apt install -y neovim tmux curl \
+        && apt install -y curl neovim software-properties-common tmux\
         && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install fish
 	fi
 }
