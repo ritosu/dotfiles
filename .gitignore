@@ -9,7 +9,6 @@
 !.github/**
 !.tmux.conf
 !.zshrc
-!.local
 
 !README.md
 !.gitignore
