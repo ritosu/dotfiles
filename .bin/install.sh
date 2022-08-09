@@ -2,17 +2,17 @@
 set -ue
 
 install_packages() {
-	echo "install packages..."
+    echo "install packages..."
     os=$(whichOS)
 
-	if [ $os == "Darwin" ]; then
-	    brew install zsh neovim tmux curl
+    if [ $os == "darwin" ]; then
+	brew install zsh neovim tmux curl
     elif [ $os == "ubuntu" ]; then
         apt update \
         && apt -y upgrade \
         && apt install -y curl neovim software-properties-common tmux\
-        && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install -y fish
-	fi
+        && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install -y fish    
+    fi
 }
 
 link_to_homedir() {
