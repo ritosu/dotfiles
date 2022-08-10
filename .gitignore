@@ -2,6 +2,7 @@
 *
 
 ### not ignore ###
+!*/
 !.config/fish/*
 !.config/fish/**
 !.config/nvim/**
@@ -11,3 +12,8 @@
 
 !README.md
 !.gitignore
+
+
+### ignore ###
+.config/coc/
+.local
