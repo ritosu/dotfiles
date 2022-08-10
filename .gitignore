@@ -3,6 +3,7 @@
 **
 
 ### not ignore ###
+!.config/fish/*
 !.config/fish/**
 !.config/nvim/**
 !.github/**
