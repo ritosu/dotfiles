@@ -13,6 +13,9 @@ install_packages() {
         && apt install -y curl neovim software-properties-common tmux\
         && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install -y fish    
     fi
+    # install vim-plug for Unix,Linux 
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+	       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 link_to_homedir() {
