@@ -4,8 +4,7 @@
 ### not ignore ###
 !*/
 !.config/fish/*
-!.config/fish/**
-!.config/nvim/**
+!.config/nvim/init.vim
 !.github/**
 !.tmux.conf
 !.zshrc
