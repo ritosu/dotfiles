@@ -13,8 +13,8 @@ install_packages() {
         && apt install -y curl neovim software-properties-common tmux\
         && add-apt-repository ppa:fish-shell/release-3 && apt update && apt install -y fish    
     elif [ $os == "arch" ]; then
-	pacman -Sy \
-	&& pacman -S curl neovim tmux fish
+	pacman -Sy --noconfirm \
+	&& pacman -S --noconfirm curl neovim tmux fish
     fi
     # install vim-plug for Unix,Linux 
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
