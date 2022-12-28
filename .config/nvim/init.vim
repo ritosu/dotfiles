@@ -15,8 +15,6 @@ let g:airline_theme='luna'
 let g:rustfmt_autosave=1
 " end Plugin
 
-set shell=/bin/zsh
+set shell=/bin/fish
 set shiftwidth=4
 set confirm
-
-inoremap jj <ESC>
