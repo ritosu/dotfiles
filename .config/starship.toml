@@ -1,0 +1,13 @@
+[character]
+success_symbol = "[􏿽](cyan)"
+error_symbol = "[􏿽](red)"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+style = 'bold #CE5C00'
+
+[hostname]
+ssh_only = false
+style = 'bold #1B7699'
+format = '[$ssh_symbol$hostname]($style) '

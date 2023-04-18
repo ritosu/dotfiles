@@ -3,9 +3,9 @@
 
 ### not ignore ###
 !*/
-!.config/fish/*
 !.config/nvim/init.vim
-!.github/**
+!.config/starship.toml
+!.zshrc
 !.tmux.conf
 
 !README.md
@@ -13,5 +13,3 @@
 
 
 ### ignore ###
-.config/coc/
-.local
