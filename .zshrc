@@ -4,6 +4,11 @@
 export PATH="/Users/kenta-tanaka/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+# debian
+export PATH=$PATH:/snap/bin
+
+# starship設定ファイルを指定
+export STARSHIP_CONFIG=~/.starship.toml
 eval "$(starship init zsh)"
 
 
@@ -25,3 +30,4 @@ alias gl='git log -n 3'
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
