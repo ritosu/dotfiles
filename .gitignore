@@ -4,7 +4,7 @@
 ### not ignore ###
 !*/
 !.config/nvim/init.vim
-!.config/starship.toml
+!.starship.toml
 !.zshrc
 !.tmux.conf
 
