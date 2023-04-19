@@ -11,7 +11,7 @@ format = '[ﮛ $path]($style)[$read_only]($read_only_style) '
 [hostname]
 ssh_only = false
 style = 'bold #1B7699'
-format = '[$ssh_symbol$hostname...ﳹ ]($style) '
+format = '[...ﳹ $ssh_symbol$hostname]($style) '
 
 [git_branch]
 symbol = 'ﯙ '
