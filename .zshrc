@@ -19,9 +19,11 @@ alias v='vi'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
-alias gpl='git pull'
-alias gps='git push'
+alias gfm='git pull'
+alias gp='git push'
 alias gl='git log -n 3'
+alias gb='git branch'
+alias gco='git checkout'
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
