@@ -6,8 +6,16 @@ error_symbol = "[􏿽](red)"
 truncation_length = 100
 truncate_to_repo = false
 style = 'bold #CE5C00'
+format = '[ﮛ $path]($style)[$read_only]($read_only_style) '
 
 [hostname]
 ssh_only = false
 style = 'bold #1B7699'
-format = '[$ssh_symbol$hostname]($style) '
+format = '[$ssh_symbol$hostname...ﳹ ]($style) '
+
+[git_branch]
+symbol = 'ﯙ '
+
+[cmd_duration]
+format = '[ﮦ $duration]($style) '
+min_time = 60_000
